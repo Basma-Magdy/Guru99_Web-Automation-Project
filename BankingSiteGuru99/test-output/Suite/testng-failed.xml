@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="listener.ITestListenerClass"/>
+  </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="TestCases.ManagerTests">
+      <class name="TestCases.LoginTests">
         <methods>
-          <include name="ManagerUserIdPresesnce" invocation-numbers="1"/>
-          <include name="Teardown"/>
+          <include name="LoginTestsSetup"/>
+          <include name="TC02_InValidScenariosLoginVerification" invocation-numbers="0"/>
         </methods>
-      </class> <!-- TestCases.ManagerTests -->
+      </class> <!-- TestCases.LoginTests -->
+      <class name="TestCases.TestCasesPrePostConditions">
+        <methods>
+          <include name="SetUpTest"/>
+        </methods>
+      </class> <!-- TestCases.TestCasesPrePostConditions -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

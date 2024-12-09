@@ -15,6 +15,7 @@ public class DataDrivenProvider {
 		return InData;
 	}
 	
+	
 	@DataProvider(name = "InValidLoginData")
 	public  Object [][] getInvalidData(){
 		
@@ -25,6 +26,7 @@ public class DataDrivenProvider {
 		Object InData[][] = testData(excelFilePath, sheetName);
 		return InData;
 	}
+	
 	
 	public static Object [][] testData(String excelFilePath, String sheetName)
 	{

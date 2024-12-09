@@ -1,11 +1,9 @@
 package listener;
 
-import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import Pages.LoginPage;
 import TestCases.LoginTests;
 import Utilities.LogsUtils;
 import Utilities.Util;
@@ -15,39 +13,38 @@ public class ITestListenerClass implements ITestListener{
 		
 	public void onTestStart(ITestResult result)
 	{
-		//System.out.println("******* Test Started :" + result.getName());
         LogsUtils.info(" Test Case "+ result.getName() + " started");
-
 	}
 	
 	
 	public void onTestSuccess(ITestResult result)
 	{
-		
-		//System.out.println("******* Test is Successful :" + result.getName());
+		Util.TakeScreenShot("Login_Screenshot");
 		LogsUtils.info(" Test Case "+ result.getName() + " Passed ");
+		LoginTests.loginTest1.pass("Test is Passed");
 
 	}
 	
 	
 	public void onTestFailure(ITestResult result)
 	{
-		Util.TakeScreenShot("Failure_Shot");
-		//System.out.println("******* Test failed :" + result.getName());
-	}
+		Util.TakeScreenShot("Failure_Screenshot");
+		LogsUtils.info(" Test Case "+ result.getName() + " Failed ");
+		LoginTests.loginTest1.fail("Test is failed ");
+	}		
+
 	
 	public void onTestSkipped(ITestResult result)
 	{
-		//System.out.println("******* Test Skipped :" + result.getName());
         LogsUtils.info(" Test Case "+ result.getName() + " Skipped ");
+		LoginTests.loginTest1.info("Test " + result.getName() + " is Skipped");
 
 	}
 	
 	
 	public void onFinish(ITestContext context)
 	{
-		System.out.println("******* Test is Completed :" + context.getName());
-
+		LoginTests.loginTest1.info("Test " + context.getName() + " is Completed");
 	}
 	
 }

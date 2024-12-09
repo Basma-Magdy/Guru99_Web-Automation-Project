@@ -1,17 +1,12 @@
 package Pages;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import Configuration.ConfigClass;
+import TestCases.LoginTests;
 import Utilities.LogsUtils;
 import Utilities.Util;
 
@@ -64,14 +59,16 @@ public class LoginPage {
 					if(elementExist)
 					{
 						ConfigClass.setProperties("LoginTestResult", "Pass");
-						LogsUtils.info(" -- Valid Login data test is passed --");
+						LogsUtils.info(" Login is done successfully ");
+						LoginTests.loginTest1.pass("Login is done successfully");
+						
 					}
 					
 					else
 					{
 						ConfigClass.setProperties("LoginTestResult", "Fail");
-						LogsUtils.fatal(" ---Valid Login data test is FAILED --" );
-						Assert.assertTrue(elementExist, "=== Login is failed ===");
+						LogsUtils.fatal(" Login is Failed with Valid Data " );
+						Assert.assertTrue(elementExist);
 					}
 	}
 				
@@ -85,18 +82,24 @@ public class LoginPage {
 					Alert errorAlert = driver.switchTo().alert();
 	
 					actualErrorMessage = errorAlert.getText();
-										
+						
 					errorAlert.accept();
 					
-					Assert.assertEquals(actualErrorMessage, Util.EXPECTED_ERROR_MESSAGE, "-- Invaild login data alert is not the same as expected---");
+					if (!(new String(actualErrorMessage).equals(Util.EXPECTED_ERROR_MESSAGE)))
+					{
+						LoginTests.loginTest1.fail(" Invalid login alert data, Actual message is not the same as expected ");
+						LogsUtils.error(" Invalid login alert data, Actual message is not the same as expected ");
+					}
+					Assert.assertEquals(actualErrorMessage, Util.EXPECTED_ERROR_MESSAGE);
+					
 
 				}
 				
 				catch(Exception exp)
 				{
 					
-					LogsUtils.fatal(" --- Login with invalid data is not correct ---");				
-					ConfigClass.setProperties("LoginTestResult", "Fail");
+					LogsUtils.fatal(" Login with invalid data is failed ");	
+					LoginTests.loginTest1.fail(" Login with invalid data is failed ");
 					Assert.assertTrue(false);
 				}
 	}

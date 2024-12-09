@@ -2,8 +2,6 @@ package Utilities;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -12,7 +10,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
-import TestCases.TestCasesPrePostConditions;
 import TestCases.LoginTests;
 
 public class Util {
@@ -22,14 +19,13 @@ public class Util {
 	public static final int WAIT_TIME = 10 ;
 	public static final int SCRIPT_WAIT_TIME =  1;
 
-	/* Setting the base url, userid and user password */
+	/* Setting the base url, EXPECTED_ERROR_MESSAGE */
 	public static final String BASE_URL = "https://www.demo.guru99.com/V4/";
-	//public static final String USER_ID = "mngr602413";
-	//public static final String USER_PASS = "hAnYsAh";
-	public static final String EXPECTED_ERROR_MESSAGE = "User or Password is not valid";
+	public static final String EXPECTED_ERROR_MESSAGE = "User or Password is no valid";
 	
+	private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
-	
+
 	/* get the time stamp method */
     public static String getTimeStamp()
     {
@@ -54,4 +50,10 @@ public class Util {
 			}
 		}
 		
+
+    public static WebDriver getDriver() 
+    {
+        return driverThreadLocal.get();
+    }
+
 }
