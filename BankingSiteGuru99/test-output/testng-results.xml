@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-12-09T07:21:26 GMT" name="Default suite" finished-at="2024-12-09T07:21:35 GMT" duration-ms="8682">
+    <groups>
+      <group name="Regression">
+        <method signature="LoginTests.TC01_ValidScenarioLoginVerification(java.lang.String,java.lang.String)[pri:0, instance:TestCases.LoginTests@662ac478]" name="TC01_ValidScenarioLoginVerification" class="TestCases.LoginTests"/>
+        <method signature="LoginTests.TC02_InValidScenariosLoginVerification(java.lang.String,java.lang.String)[pri:0, instance:TestCases.LoginTests@662ac478]" name="TC02_InValidScenariosLoginVerification" class="TestCases.LoginTests"/>
+      </group> <!-- Regression -->
+      <group name="Login">
+        <method signature="LoginTests.TC01_ValidScenarioLoginVerification(java.lang.String,java.lang.String)[pri:0, instance:TestCases.LoginTests@662ac478]" name="TC01_ValidScenarioLoginVerification" class="TestCases.LoginTests"/>
+        <method signature="LoginTests.TC02_InValidScenariosLoginVerification(java.lang.String,java.lang.String)[pri:0, instance:TestCases.LoginTests@662ac478]" name="TC02_InValidScenariosLoginVerification" class="TestCases.LoginTests"/>
+      </group> <!-- Login -->
+    </groups>
+    <test started-at="2024-12-09T07:21:26 GMT" name="Default test" finished-at="2024-12-09T07:21:35 GMT" duration-ms="8682">
+      <class name="TestCases.LoginTests">
+        <test-method is-config="true" signature="SetUpTest()[pri:0, instance:TestCases.LoginTests@662ac478]" started-at="2024-12-09T07:21:26 GMT" name="SetUpTest" finished-at="2024-12-09T07:21:30 GMT" duration-ms="4020" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SetUpTest -->
+        <test-method is-config="true" signature="LoginTestsSetup()[pri:0, instance:TestCases.LoginTests@662ac478]" started-at="2024-12-09T07:21:31 GMT" name="LoginTestsSetup" finished-at="2024-12-09T07:21:32 GMT" duration-ms="1061" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginTestsSetup -->
+        <test-method signature="TC01_ValidScenarioLoginVerification(java.lang.String,java.lang.String)[pri:0, instance:TestCases.LoginTests@662ac478]" started-at="2024-12-09T07:21:32 GMT" name="TC01_ValidScenarioLoginVerification" data-provider="ValidLoginData" finished-at="2024-12-09T07:21:33 GMT" duration-ms="787" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[mngr602413]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[hAnYsAh]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC01_ValidScenarioLoginVerification -->
+        <test-method is-config="true" signature="LoginTestsSetup()[pri:0, instance:TestCases.LoginTests@662ac478]" started-at="2024-12-09T07:21:33 GMT" name="LoginTestsSetup" finished-at="2024-12-09T07:21:33 GMT" duration-ms="412" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginTestsSetup -->
+        <test-method signature="TC02_InValidScenariosLoginVerification(java.lang.String,java.lang.String)[pri:0, instance:TestCases.LoginTests@662ac478]" started-at="2024-12-09T07:21:33 GMT" name="TC02_InValidScenariosLoginVerification" data-provider="InValidLoginData" finished-at="2024-12-09T07:21:34 GMT" duration-ms="293" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[xyz]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[zdghfjh]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC02_InValidScenariosLoginVerification -->
+        <test-method is-config="true" signature="Teardown()[pri:0, instance:TestCases.LoginTests@662ac478]" started-at="2024-12-09T07:21:34 GMT" name="Teardown" finished-at="2024-12-09T07:21:35 GMT" duration-ms="1098" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Teardown -->
+      </class> <!-- TestCases.LoginTests -->
+      <class name="TestCases.ManagerTests">
+        <test-method signature="TC03_ManagerUserIdPresesnce(java.lang.String,java.lang.String)[pri:0, instance:TestCases.ManagerTests@233795b6]" started-at="2024-12-09T07:21:35 GMT" name="TC03_ManagerUserIdPresesnce" depends-on-groups="Login" finished-at="2024-12-09T07:21:35 GMT" duration-ms="0" status="FAIL">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Method public static void TestCases.ManagerTests.TC03_ManagerUserIdPresesnce(java.lang.String,java.lang.String) requires a @DataProvider named : LoginData in class Utilities.DataDrivenProvider]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Method public static void TestCases.ManagerTests.TC03_ManagerUserIdPresesnce(java.lang.String,java.lang.String) requires a @DataProvider named : LoginData in class Utilities.DataDrivenProvider
+at org.testng.internal.Parameters.findDataProvider(Parameters.java:532)
+at org.testng.internal.Parameters.handleParameters(Parameters.java:769)
+at org.testng.internal.Parameters.handleParameters(Parameters.java:734)
+at org.testng.internal.invokers.ParameterHandler.handleParameters(ParameterHandler.java:72)
+at org.testng.internal.invokers.ParameterHandler.createParameters(ParameterHandler.java:51)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:946)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC03_ManagerUserIdPresesnce -->
+      </class> <!-- TestCases.ManagerTests -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
