@@ -35,7 +35,7 @@ public class TCPrePostConditions {
 		logger = LogManager.getLogger();
 		
 		/*  Generate Extent Report */
-		ExtentSparkReporter htmlReport = new ExtentSparkReporter("TestCasesReport.html");
+		ExtentSparkReporter htmlReport = new ExtentSparkReporter("TestCasesExtentReport.html");
 		extentReport = new ExtentReports();
 		extentReport.attachReporter(htmlReport);
 		

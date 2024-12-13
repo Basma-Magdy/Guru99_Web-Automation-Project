@@ -17,8 +17,8 @@ public class Util {
 
 	/* Setting the base url, EXPECTED_ERROR_MESSAGE */
 	public static final String BASE_URL = "https://www.demo.guru99.com/V4/";
-	public static final String MANAGER_URL = "https://www.demo.guru99.com/V/manager/Managerhomepage.php";
-	public static final String EXPECTED_ERROR_MESSAGE = "User or Password is no valid";
+	public static final String MANAGER_URL = "https://www.demo.guru99.com/V4/manager/Managerhomepage.php";
+	public static final String EXPECTED_ERROR_MESSAGE = "User or Password is not valid";
 	
 
 	/* get the time stamp method */

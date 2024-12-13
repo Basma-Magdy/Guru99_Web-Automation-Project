@@ -42,9 +42,4 @@ public class ITestListenerClass implements ITestListener{
 	}
 	
 	
-	public void onFinish(ITestContext context)
-	{
-		TCPrePostConditions.extentTest.info("Test " + context.getName() + " is Completed");
-	}
-	
 }

@@ -63,7 +63,6 @@ public class LoginPage {
 		boolean elementExist = driver.findElement(loginValidate).isDisplayed();
 			if(elementExist)
 			{
-				ConfigClass.setProperties("LoginTestResult", "Pass");
 				LogsUtils.info(" Login is done successfully ");
 				TCPrePostConditions.extentTest.pass("Login is done successfully");
 				
@@ -71,7 +70,6 @@ public class LoginPage {
 			
 			else
 			{
-				ConfigClass.setProperties("LoginTestResult", "Fail");
 				LogsUtils.fatal(" Login is Failed with Valid Data " );
 				Assert.assertTrue(elementExist);
 			}
@@ -90,10 +88,6 @@ public class LoginPage {
 			/* Switch to the alert and get the alert message */
 			 Alert errorAlert = driver.switchTo().alert();	
 			 String actualErrorMessage = errorAlert.getText();
-			 
-			 
-			 System.out.println("actualErrorMessage is :" + actualErrorMessage);
-			 System.out.println("EXPECTED_ERROR_MESSAGE is :" + Util.EXPECTED_ERROR_MESSAGE);
 	
 			 errorAlert.accept();
 				
@@ -104,6 +98,7 @@ public class LoginPage {
 				}
 			 
 			Assert.assertEquals(actualErrorMessage, Util.EXPECTED_ERROR_MESSAGE);
+			LogsUtils.info("  Invalid login alert data is present with correct message ");
 			TCPrePostConditions.extentTest.pass(" Invalid login alert data is present with correct message"); 
 		}		
 
