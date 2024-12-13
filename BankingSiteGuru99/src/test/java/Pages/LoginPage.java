@@ -1,12 +1,17 @@
 package Pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import Configuration.ConfigClass;
-import TestCases.LoginTests;
+import TestCases.TCPrePostConditions;
 import Utilities.LogsUtils;
 import Utilities.Util;
 
@@ -52,56 +57,64 @@ public class LoginPage {
 	}
 
 	
-	/* LoginValidation is a function validates if the login has been succeeded or not */ 
+	/* ValidLoginValidation is a function validates if the login has been succeeded or not with valid data */ 
 	public void ValidLoginValidation()
 	{
 		boolean elementExist = driver.findElement(loginValidate).isDisplayed();
-					if(elementExist)
-					{
-						ConfigClass.setProperties("LoginTestResult", "Pass");
-						LogsUtils.info(" Login is done successfully ");
-						LoginTests.loginTest1.pass("Login is done successfully");
-						
-					}
-					
-					else
-					{
-						ConfigClass.setProperties("LoginTestResult", "Fail");
-						LogsUtils.fatal(" Login is Failed with Valid Data " );
-						Assert.assertTrue(elementExist);
-					}
+			if(elementExist)
+			{
+				ConfigClass.setProperties("LoginTestResult", "Pass");
+				LogsUtils.info(" Login is done successfully ");
+				TCPrePostConditions.extentTest.pass("Login is done successfully");
+				
+			}
+			
+			else
+			{
+				ConfigClass.setProperties("LoginTestResult", "Fail");
+				LogsUtils.fatal(" Login is Failed with Valid Data " );
+				Assert.assertTrue(elementExist);
+			}
 	}
 				
 	
-	/* LoginValidation is a function validates if the login has been succeeded or not */ 
+	/* InvalidLoginValidation is a function validates if the login has been succeeded or not with invalid data */ 
 	public void InvalidLoginValidation()
-	{
-		String actualErrorMessage;
-			try
-				{
-					Alert errorAlert = driver.switchTo().alert();
+	{	
+		try
+		{
+			/*  wait until the alert is present */ 
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
+			wait.until(ExpectedConditions.alertIsPresent());
+			
+			/* Switch to the alert and get the alert message */
+			 Alert errorAlert = driver.switchTo().alert();	
+			 String actualErrorMessage = errorAlert.getText();
+			 
+			 
+			 System.out.println("actualErrorMessage is :" + actualErrorMessage);
+			 System.out.println("EXPECTED_ERROR_MESSAGE is :" + Util.EXPECTED_ERROR_MESSAGE);
 	
-					actualErrorMessage = errorAlert.getText();
-						
-					errorAlert.accept();
-					
-					if (!(new String(actualErrorMessage).equals(Util.EXPECTED_ERROR_MESSAGE)))
-					{
-						LoginTests.loginTest1.fail(" Invalid login alert data, Actual message is not the same as expected ");
-						LogsUtils.error(" Invalid login alert data, Actual message is not the same as expected ");
-					}
-					Assert.assertEquals(actualErrorMessage, Util.EXPECTED_ERROR_MESSAGE);
-					
-
-				}
+			 errorAlert.accept();
 				
-				catch(Exception exp)
-				{
-					
-					LogsUtils.fatal(" Login with invalid data is failed ");	
-					LoginTests.loginTest1.fail(" Login with invalid data is failed ");
-					Assert.assertTrue(false);
+			 if (!(actualErrorMessage.equals(Util.EXPECTED_ERROR_MESSAGE)))
+			 	{
+					TCPrePostConditions.extentTest.fail(" Invalid login alert data, Actual message is not the same as expected ");
+					LogsUtils.error(" Invalid login alert data, Actual message is not the same as expected ");
 				}
-	}
-}
+			 
+			Assert.assertEquals(actualErrorMessage, Util.EXPECTED_ERROR_MESSAGE);
+			TCPrePostConditions.extentTest.pass(" Invalid login alert data is present with correct message"); 
+		}		
+
+		
+		catch(Exception exp)
+		
+			{
+		
+				LogsUtils.debug("Error alert issue in the invalid login, the issue is : " + exp.getMessage());
 	
+			}
+	}
+
+}

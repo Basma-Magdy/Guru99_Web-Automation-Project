@@ -10,6 +10,8 @@
      <classes>
      	<class name="TestCases.TCPrePostConditions" />
      	<class name="TestCases.LoginTests"/>
+     	<class name="TestCases.ManagerTests"/>
+
     </classes>
    
   </test> <!-- Test -->

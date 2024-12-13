@@ -6,17 +6,23 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
+      <class name="TestCases.ManagerTests">
+        <methods>
+          <include name="TC03_LoginWithManagerID" invocation-numbers="0"/>
+          <include name="TC04_ManagerUserIdPresesnce"/>
+        </methods>
+      </class> <!-- TestCases.ManagerTests -->
       <class name="TestCases.LoginTests">
         <methods>
           <include name="LoginTestsSetup"/>
           <include name="TC02_InValidScenariosLoginVerification" invocation-numbers="0"/>
         </methods>
       </class> <!-- TestCases.LoginTests -->
-      <class name="TestCases.TestCasesPrePostConditions">
+      <class name="TestCases.TCPrePostConditions">
         <methods>
           <include name="SetUpTest"/>
         </methods>
-      </class> <!-- TestCases.TestCasesPrePostConditions -->
+      </class> <!-- TestCases.TCPrePostConditions -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

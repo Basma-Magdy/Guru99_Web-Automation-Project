@@ -3,12 +3,12 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
-import Configuration.ConfigClass;
-import TestCases.ManagerTests;
-
-import org.testng.SkipException;
+import TestCases.TCPrePostConditions;
+import Utilities.LogsUtils;
+import Utilities.Util;
 
 public class ManagerHomePage {
 
@@ -28,50 +28,50 @@ public class ManagerHomePage {
 	}	
 	
 	
-	/* ValidateUserIsManager is a function used to check if the login username is for a manager then proceed,
-	 * if for someone else then skip the manager test cases 
-	 */
-	
-	public void ValidateUserIsManager()
+	public void ValidateUserInCorrectURL() 
 	{
+		String Current_URL = TCPrePostConditions.driver.getCurrentUrl();
 		
-		/* Skip test if the userID is not for Manager */
-		if (!(userID.contains("mngr")))
-		{
-			ConfigClass.setProperties("ManagerTestResult", "Skipped");
-			ManagerTests.extentTest2.skip("Test is Skipped, The user is not a manager ");
-			
-			throw new SkipException("=== the User is not a manager, Test is skipped ===");
+		if (Current_URL.equals(Util.MANAGER_URL))
+			{
+				LogsUtils.info("User is in the manager webpage");
+				TCPrePostConditions.extentTest.pass("User is in the manager webpage ");
 
+			}
+		else
+		{
+			LogsUtils.error("User is not in the manager webpage");
+			TCPrePostConditions.extentTest.fail("User is not in the manager webpage ");
+			Assert.assertTrue(false);
+			
 		}
-      
+
+			
 	}
-      
 	/* ValidateManagerIdIsShown is a function which Validates that 
 	 * Manager ID is shown properly after the login page and prints
 	 * a message which indicates if it's appeared correctly or not  
 	 * */
 	public void ValidateManagerIdIsShown() 
 	{
-		try 
-		{
 			
 			/* get the shown text of the Manager ID Word */
 		WebElement textLocator = driver.findElement(managerIdLocator);
 		String shownText  = textLocator.getText();
 		
 		if (shownText.contains(userID))
-			System.out.println(" == Manager ID is shown correctly == ");
-			ConfigClass.setProperties("ManagerTestResult", "Pass");
-			ManagerTests.extentTest2.pass("Validate Manager Id Is Shown Correctly");
+		{
+			TCPrePostConditions.extentTest.pass("Manager Id Is Shown Properly");
+			LogsUtils.info("Manager Id Is Shown Properly");
 
 		}
 		
-		catch(Exception exp)
+		else
 		{
-			ConfigClass.setProperties("ManagerTestResult", "Fail");
-			ManagerTests.extentTest2.fail("Manager ID is NOT shown correctly ");
-			softAssert.assertTrue(false ," == Manager ID is NOT correct == ");
+			TCPrePostConditions.extentTest.fail("Manager ID is NOT correct ");
+			LogsUtils.error("Manager ID is NOT correct");
+			softAssert.assertTrue(false, "Manager ID is NOT correct");
+			softAssert.assertAll();
 		}	
 	}
 }

@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
-                    <span>C:\Users\basma\git\Guru99_Web-Automation-Project\BankingSiteGuru99\TestRunner\Login.xml</span>
+                    <span>C:\Users\basma\git\Guru99_Web-Automation-Project\BankingSiteGuru99\TestRunner\AllTests.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -60,7 +60,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-Suite" class="navigator-link ">
-                    <span>2 groups</span>
+                    <span>4 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                    <span class="method-stats">4 methods, 2 failed,  1 skipped,  1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -106,7 +106,26 @@
                         <a href="#" panel-name="suite-Suite" title="TestCases.LoginTests" class="method navigator-link" hash-for-method="TC02_InValidScenariosLoginVerification(xyz, zdghfjh)">TC02_InValidScenariosLoginVerification(xyz, zdghfjh)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="TestCases.ManagerTests" class="method navigator-link" hash-for-method="TC03_LoginWithManagerID(mngr602413, hAnYsAh)">TC03_LoginWithManagerID(mngr602413, hAnYsAh)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                     </div> <!-- method-list-content failed suite-Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods skipped suite-Suite"> (hide)</a> <!-- hide-methods skipped suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods skipped suite-Suite"> (show)</a> <!-- show-methods skipped suite-Suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Suite">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="TestCases.ManagerTests" class="method navigator-link" hash-for-method="TC04_ManagerUserIdPresesnce">TC04_ManagerUserIdPresesnce</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -135,6 +154,28 @@
           <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
+              <span class="class-name">TestCases.ManagerTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC03_LoginWithManagerID(mngr602413, hAnYsAh)">
+                  </a> <!-- TC03_LoginWithManagerID(mngr602413, hAnYsAh) -->
+                  <span class="method-name">TC03_LoginWithManagerID</span>
+                  <span class="parameters">(mngr602413,hAnYsAh)</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at Pages.ManagerHomePage.ValidateUserInCorrectURL(ManagerHomePage.java:45)
+	at TestCases.ManagerTests.TC03_LoginWithManagerID(ManagerTests.java:39)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
               <span class="class-name">TestCases.LoginTests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -145,8 +186,8 @@
                   <span class="method-name">TC02_InValidScenariosLoginVerification</span>
                   <span class="parameters">(xyz,zdghfjh)</span>
                   <div class="stack-trace">java.lang.AssertionError: expected [User or Password is no valid] but found [User or Password is not valid]
-	at Pages.LoginPage.InvalidLoginValidation(LoginPage.java:93)
-	at TestCases.LoginTests.TC02_InValidScenariosLoginVerification(LoginTests.java:86)
+	at Pages.LoginPage.InvalidLoginValidation(LoginPage.java:106)
+	at TestCases.LoginTests.TC02_InValidScenariosLoginVerification(LoginTests.java:70)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 ... Removed 31 stack frames
 </div> <!-- stack-trace -->
@@ -154,6 +195,25 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">TestCases.ManagerTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC04_ManagerUserIdPresesnce">
+                  </a> <!-- TC04_ManagerUserIdPresesnce -->
+                  <span class="method-name">TC04_ManagerUserIdPresesnce</span>
+                  <div class="stack-trace">java.lang.Throwable: Method ManagerTests.TC04_ManagerUserIdPresesnce(java.lang.String,java.lang.String)[pri:2, instance:TestCases.ManagerTests@3eb738bb] depends on not successfully finished methods in group &quot;ManagerValidLogin&quot;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-skipped -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -173,7 +233,7 @@
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\basma\git\Guru99_Web-Automation-Project\BankingSiteGuru99\TestRunner\Login.xml</span>
+            <span class="header-content">C:\Users\basma\git\Guru99_Web-Automation-Project\BankingSiteGuru99\TestRunner\AllTests.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -185,8 +245,9 @@
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;TestCases.TestCasesPrePostConditions&quot;/&gt;
+      &lt;class name=&quot;TestCases.TCPrePostConditions&quot;/&gt;
       &lt;class name=&quot;TestCases.LoginTests&quot;/&gt;
+      &lt;class name=&quot;TestCases.ManagerTests&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -200,7 +261,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (2 classes)</span>
+                <span class="test-name">Test (3 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -211,14 +272,18 @@
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
-              <span class="test-group-name">Login</span>
+              <span class="test-group-name">InvalidLogin</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">TC01_ValidScenarioLoginVerification</span>
+                <span class="method-in-group-name">TC02_InValidScenariosLoginVerification</span>
                 <br/>
               </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">ManagerValidLogin</span>
+              <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">TC02_InValidScenariosLoginVerification</span>
+                <span class="method-in-group-name">TC03_LoginWithManagerID</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -231,6 +296,14 @@
               </div> <!-- method-in-group -->
               <div class="method-in-group">
                 <span class="method-in-group-name">TC02_InValidScenariosLoginVerification</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">ValidLogin</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">TC01_ValidScenarioLoginVerification</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -250,20 +323,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'TC01_ValidScenarioLoginVerification')
-data.setCell(0, 2, 'TestCases.LoginTests')
-data.setCell(0, 3, 636);
+data.setCell(0, 1, 'TC03_LoginWithManagerID')
+data.setCell(0, 2, 'TestCases.ManagerTests')
+data.setCell(0, 3, 904);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'TC02_InValidScenariosLoginVerification')
+data.setCell(1, 1, 'TC01_ValidScenarioLoginVerification')
 data.setCell(1, 2, 'TestCases.LoginTests')
-data.setCell(1, 3, 290);
+data.setCell(1, 3, 727);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'TC02_InValidScenariosLoginVerification')
+data.setCell(2, 2, 'TestCases.LoginTests')
+data.setCell(2, 3, 363);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'TC04_ManagerUserIdPresesnce')
+data.setCell(3, 2, 'TestCases.ManagerTests')
+data.setCell(3, 3, 0);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 926 ms</span>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -289,7 +370,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">TestCases.TestCasesPrePostConditions</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">TestCases.TCPrePostConditions</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">SetUpTest</span>
                 <span class="method-start">0 ms</span>
@@ -299,28 +380,37 @@ return data;
               <div class="chronological-class-name">TestCases.LoginTests</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">LoginTestsSetup</span>
-                <span class="method-start">2697 ms</span>
+                <span class="method-start">2812 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">TC01_ValidScenarioLoginVerification(mngr602413, hAnYsAh)</span>
-                <span class="method-start">3440 ms</span>
+                <span class="method-start">3433 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">LoginTestsSetup</span>
-                <span class="method-start">4283 ms</span>
+                <span class="method-start">4197 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">TC02_InValidScenariosLoginVerification(xyz, zdghfjh)</span>
-                <span class="method-start">4623 ms</span>
+                <span class="method-start">4446 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
-              <div class="chronological-class-name">TestCases.TestCasesPrePostConditions</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">TestCases.ManagerTests</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC03_LoginWithManagerID(mngr602413, hAnYsAh)</span>
+                <span class="method-start">5344 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">TestCases.TCPrePostConditions</div> <!-- chronological-class-name -->
               <div class="configuration-test after">
                 <span class="method-name">Teardown</span>
-                <span class="method-start">5429 ms</span>
+                <span class="method-start">6415 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

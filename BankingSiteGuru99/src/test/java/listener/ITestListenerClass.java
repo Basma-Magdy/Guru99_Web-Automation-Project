@@ -4,7 +4,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import TestCases.LoginTests;
+import TestCases.TCPrePostConditions;
 import Utilities.LogsUtils;
 import Utilities.Util;
 
@@ -13,38 +13,38 @@ public class ITestListenerClass implements ITestListener{
 		
 	public void onTestStart(ITestResult result)
 	{
-        LogsUtils.info(" Test Case "+ result.getName() + " started");
+		TCPrePostConditions.extentTest = TCPrePostConditions.extentReport.createTest(result.getName());
+        LogsUtils.info("Test Case "+ result.getName() + " started");
 	}
 	
 	
-	public void onTestSuccess(ITestResult result)
+	public void onTestSuccess(ITestResult result) 
 	{
-		Util.TakeScreenShot("Login_Screenshot");
-		LogsUtils.info(" Test Case "+ result.getName() + " Passed ");
-		LoginTests.loginTest1.pass("Test is Passed");
+		LogsUtils.info("Test Case "+ result.getName() + " Passed ");
+		TCPrePostConditions.extentTest.pass("Test is Passed");
 
 	}
 	
 	
 	public void onTestFailure(ITestResult result)
 	{
-		Util.TakeScreenShot("Failure_Screenshot");
-		LogsUtils.info(" Test Case "+ result.getName() + " Failed ");
-		LoginTests.loginTest1.fail("Test is failed ");
+		Util.TakeScreenShot(result.getName() + " Failure_Screenshot");
+		LogsUtils.info("Test Case "+ result.getName() + " Failed ");
+		TCPrePostConditions.extentTest.fail("Test is failed ");
 	}		
 
 	
 	public void onTestSkipped(ITestResult result)
 	{
-        LogsUtils.info(" Test Case "+ result.getName() + " Skipped ");
-		LoginTests.loginTest1.info("Test " + result.getName() + " is Skipped");
+        LogsUtils.info("Test Case "+ result.getName() + " Skipped ");
+		TCPrePostConditions.extentTest.skip("Test " + result.getName() + " is Skipped");
 
 	}
 	
 	
 	public void onFinish(ITestContext context)
 	{
-		LoginTests.loginTest1.info("Test " + context.getName() + " is Completed");
+		TCPrePostConditions.extentTest.info("Test " + context.getName() + " is Completed");
 	}
 	
 }

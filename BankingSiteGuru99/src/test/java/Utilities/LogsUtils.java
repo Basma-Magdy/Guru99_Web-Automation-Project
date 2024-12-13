@@ -6,6 +6,8 @@ public class LogsUtils {
 
     public static String LOGS_PATH = "src/test-outputs/Logs";
 
+    /* get the loggs by the exact file and error line and enter them to be saved in a log file */
+    
     public static void trace (String message){
         LogManager.getLogger(Thread.currentThread().getStackTrace()[2].toString())
                 .trace(message);

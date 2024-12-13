@@ -8,7 +8,7 @@ public class DataDrivenProvider {
 	public  Object [][] getValidData(){
 		
 		String ProjectPath = System.getProperty("user.dir");
-		String excelFilePath = ProjectPath + "/src/test/resources/Excel/InputData.xlsx";
+		String excelFilePath = ProjectPath + "/src/test/resources/Excel/TestData.xlsx";
 		String sheetName= "ValidLogin";
 		
 		Object InData[][] = testData(excelFilePath, sheetName);
@@ -20,12 +20,25 @@ public class DataDrivenProvider {
 	public  Object [][] getInvalidData(){
 		
 		String ProjectPath = System.getProperty("user.dir");
-		String excelFilePath = ProjectPath + "/src/test/resources/Excel/InputData.xlsx";
+		String excelFilePath = ProjectPath + "/src/test/resources/Excel/TestData.xlsx";
 		String sheetName= "InValidLogin";
 		
 		Object InData[][] = testData(excelFilePath, sheetName);
 		return InData;
 	}
+	
+	
+	@DataProvider(name = "ManagerLoginData")
+	public  Object [][] getManagerLoginData(){
+		
+		String ProjectPath = System.getProperty("user.dir");
+		String excelFilePath = ProjectPath + "/src/test/resources/Excel/TestData.xlsx";
+		String sheetName= "ManagerLoginData";
+		
+		Object InData[][] = testData(excelFilePath, sheetName);
+		return InData;
+	}
+	
 	
 	
 	public static Object [][] testData(String excelFilePath, String sheetName)
